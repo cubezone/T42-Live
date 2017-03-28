@@ -70,7 +70,7 @@ int main(void)
 	{
 		  
 // mouse loop		
-/*
+
 			if(PS2_Status&0x80)
 			{		  
 				//get mouse data	
@@ -83,7 +83,7 @@ int main(void)
 				Mouse_Send(0,0,0);
 				PS2_Status=MOUSE;	
 			}		
-*/			
+			
 // keyboard loop		
 
 		  modifiers = 0;
