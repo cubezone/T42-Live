@@ -33,9 +33,9 @@ u8 Init_Mouse(void)
 {
 	u8 t;		 
 	
-	GPIOB->BSRR = 1 << 0; //PB0  high
+	GPIOB->BSRR = 1 << 1; //PB1  high
 	delay_ms(1);
-	GPIOB->BRR = 1 << 0; //PB0 low
+	GPIOB->BRR = 1 << 1; //PB1 low
 	delay_ms(50);
 	PS2_Init();							     
 	delay_ms(800);            //等待上电复位完成		 	 

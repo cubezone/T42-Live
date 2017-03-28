@@ -25,6 +25,21 @@ u8 mousepress;
 u8 i;
 u8 ret;
 
+/*
+
+PA0..PA7 SenceLine
+PB4 DriverLine CLK
+PB5 DriverLine DATA
+
+PA15 Mouse ClK
+PB3  Mouse DATA
+PB1  Mouse RESET
+
+PB0  Keyboard Power Button
+PC13 Keyboard Fn Button
+
+*/
+
 int main(void)
 {
 	Stm32_Clock_Init(9);//系统时钟设置
@@ -34,7 +49,7 @@ int main(void)
 	USB_Interrupts_Config();    
 	
 	RCC->APB2ENR |= 0x00000001; //afio
-  AFIO->MAPR 		= (0x00FFFFFF & AFIO->MAPR)|0x02000000;  //disable JTAG  release PB3,PB4 to GPIO
+  AFIO->MAPR   = (0x00FFFFFF & AFIO->MAPR)|0x02000000;  //disable JTAG  release PB3,PB4 to GPIO
 	RCC->APB2ENR |= 0X0000001c;//IO PORT A,B,C
 	
 	GPIOB->CRH = 0X33333333;    //输出 
@@ -44,9 +59,9 @@ int main(void)
 
 	USB_Init();
 	
-	KS_Init();  //595 PA3 PA4 init
+	KS_Init();  //PA0..PA7; 595 PB4 PB5 init
 	
-	ret = Init_Mouse(); //ps/2 PA7 PA15 exti15 init	, PB0 reset
+	ret = Init_Mouse(); //ps/2 PB3 PA15 exti15 init	, PB1 reset
 	
 	keypress = 0;
 	mousepress = 0;
@@ -55,6 +70,7 @@ int main(void)
 	{
 		  
 // mouse loop		
+/*
 			if(PS2_Status&0x80)
 			{		  
 				//get mouse data	
@@ -67,9 +83,9 @@ int main(void)
 				Mouse_Send(0,0,0);
 				PS2_Status=MOUSE;	
 			}		
-			
+*/			
 // keyboard loop		
-			/*
+
 		  modifiers = 0;
 		  scanCodeBuffer[0] = 0;
 		  keysScanned = KS_ReadScanCode(scanCodeBuffer, scanCodeBufferSize, &modifiers);
@@ -88,8 +104,7 @@ int main(void)
 					USB_Send_All_Keys_Released(0x00);
 					keypress =0;
 			}			
-			*/
-			delay_ms(10);
+			delay_ms(10);			
 	}
 }	
 

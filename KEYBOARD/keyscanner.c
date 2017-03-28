@@ -69,24 +69,25 @@ u32 KEY_MAP2[8][16] = {
 };
 */
 
-u32 KEY_MAP1[8][16]={
-//0x0x           Down    B       / ?     Space           N               Right           AC_Ford  LWIN   Left           RALT             
-       { 0xffff ,0x0051 ,0x0005	,0x0038	,0x002c	,0xffff	,0x0011 ,0xffff	,0x004f ,0xffff ,0x8225 ,0x4003 ,0x0050,0xffff ,0x4006 ,0xffff },
-//0x2X   3 #    F11      4 $     0 )     F10     9 (     7 &     8 *     F12     2 @     PgDn    1 !     End            PSc              
-       { 0x0020 ,0x0044 ,0x0021 ,0x0027 ,0x0043 ,0x0026 ,0x0024 ,0x0025 ,0x0045 ,0x001f ,0x004e ,0x001e ,0x004d,0xffff ,0x0046 ,0xffff },
-//0x1X   C               V               Enter   . >     M  		 , <             X       AC_BACK Z       Pause  RSHIFT          RCTRL    
-       { 0x0006 ,0xffff ,0x0019 ,0xffff ,0x0028 ,0x0037 ,0x0010 ,0x0036 ,0xffff ,0x001b ,0x8224 ,0x001d ,0x0048,0x4005 ,0xffff ,0x4004 },
-//0x3X   D       mute    F       ; :     \ |     L       J       K               S       Appkey  A                                       
-       { 0x0007 ,0x80e2 ,0x0009 ,0x0033 ,0x0031 ,0x000f ,0x000d ,0x000e ,0xffff ,0x0016 ,0x0065 ,0x0004 ,0xffff,0xffff ,0xffff ,0xffff },
-//0x4X   E       vol_up  R       P               O       U       I               W       LWIN    Q                      SLk              
-       { 0x0008 ,0x80e9 ,0x0015 ,0x0013 ,0xffff ,0x0012 ,0x0018 ,0x000c ,0xffff ,0x001a ,0x4003 ,0x0014 ,0xffff,0xffff ,0x0047 ,0xffff },
-//0x5X   F3      vol_dn  T       [ {     Bsp     F7      Y       ] }     LWIN    Caps            Tab            LSHIFT                   
-       { 0x003c ,0x80ea ,0x0017 ,0x002f ,0x002a ,0x0040 ,0x001c ,0x0030 ,0x4003 ,0x0039 ,0xffff ,0x002b ,0xffff,0x4001 ,0xffff ,0xffff },
-//0x6X   F2      Del     5 %     - _     F9      F8      6 ^     = +     Ins     F1      PgUp    ` ~     Home                   LCTRL    
-       { 0x003b ,0x004c ,0x0022 ,0x002d ,0x0042 ,0x0041 ,0x0023 ,0x002e ,0x0049 ,0x003a ,0x004b ,0x0035 ,0x004a,0xffff ,0xffff ,0x4000 },
-//0x7X   F4              G       ' "     F5              H       F6                               ESC     Up             LALT            
-       { 0x003d ,0xffff ,0x000a ,0x0034 ,0x003e ,0xffff ,0x000b ,0x003f ,0xffff ,0xffff ,0xffff ,0x0029 ,0x0052,0xffff ,0x4002 ,0xffff }	
-};                                                                                                                                                                                                                                                                                                                                                                                                 
+u32 KEY_MAP1[8][16]={                                                                                                                                    
+//0x0x  N                Space           B       / ?             Down            Right    LWIN   AC_Ford         Left   			  RALT                   
+       {0x0011 , 0xffff	,0x002c	,0xffff	,0x0005	,0x0038	,0xffff ,0x0051 ,0xffff ,0x004f ,0x4003 ,0x8225 ,0xffff ,0x0050,0xffff ,0x4006 },       
+//0x1X  M  		   , <     Enter   . >     V               C               X               Z       AC_BACK RSHIFT  Pause  RCTRL                   
+       {0x0010 , 0x0036 ,0x0028 ,0x0037 ,0x0019 ,0xffff ,0x0006 ,0xffff ,0x001b ,0xffff ,0x001d ,0x8224 ,0x4005 ,0x0048,0x4004 ,0xffff },       
+//0x2X  7 &      8 *     F10     9 (     4 $     0 )     3 #     F11     2 @     F12     1 !     PgDn            End            PSc             
+       {0x0024 , 0x0025 ,0x0043 ,0x0026 ,0x0021 ,0x0027 ,0x0020 ,0x0044 ,0x001f ,0x0045 ,0x001e ,0x004e ,0xffff ,0x004d,0xffff ,0x0046 },       
+//0x3X  J        K       \ |     L       F       ; :     D       mute    S               A       Appkey                                         
+       {0x000d , 0x000e ,0x0031 ,0x000f ,0x0009 ,0x0033 ,0x0007 ,0x80e2 ,0x0016 ,0xffff ,0x0004 ,0x0065 ,0xffff ,0xffff,0xffff ,0xffff },       
+//0x4X  U        I               O       R       P       E       vol_up  W               Q       LWIN                           SLk             
+       {0x0018 , 0x000c ,0xffff ,0x0012 ,0x0015 ,0x0013 ,0x0008 ,0x80e9 ,0x001a ,0xffff ,0x0014 ,0x4003 ,0xffff ,0xffff,0xffff ,0x0047 },       
+//0x5X  Y        ] }     Bsp     F7      T       [ {     F3      vol_dn  Caps    LWIN    Tab             LSHIFT                                 
+       {0x001c , 0x0030 ,0x002a ,0x0040 ,0x0017 ,0x002f ,0x003c ,0x80ea ,0x0039 ,0x4003 ,0x002b ,0xffff ,0x4001 ,0xffff,0xffff ,0xffff },       
+//0x6X  6 ^      = +     F9      F8      5 %     - _     F2      Del     F1      Ins     ` ~     PgUp            Home   LCTRL                   
+       {0x0023 , 0x002e ,0x0042 ,0x0041 ,0x0022 ,0x002d ,0x003b ,0x004c ,0x003a ,0x0049 ,0x0035 ,0x004b ,0xffff ,0x004a,0x4000 ,0xffff },       
+//0x7X  H        F6      F5              G       ' "     F4                               ESC                     Up             LALT           
+       {0x000b , 0x003f ,0x003e ,0xffff ,0x000a ,0x0034 ,0x003d ,0xffff ,0xffff ,0xffff ,0x0029 ,0xffff ,0xffff ,0x0052,0xffff ,0x4002 }	      
+};
+
 
 u32 KEY_MAP2[8][16]={
 //0x0x            N               Space   / ?     B       Down            Right           AC_Ford  LWIN   Left           RALT             
@@ -116,8 +117,8 @@ void KS_UpdateModifiers(uint16_t scanCode, uint8_t* modifiers);
 void KS_GpioPinInit(GPIO_TypeDef *iPort, uint32_t iPin, uint32_t iMode, uint32_t iPull, uint32_t iSpeed);
 
 
-#define  PIN_CLK  1<<3  //PB3
-#define  PIN_DATA 1<<4  //PB4
+#define  PIN_CLK  1<<4  //PB4
+#define  PIN_DATA 1<<5  //Pb5
 
 void KS_Init()
 {
@@ -243,9 +244,15 @@ uint8_t KS_ReadScanCode(uint8_t* scanCodeBuffer, uint8_t bufferLength, uint8_t* 
 						KS_UpdateModifiers(scanCode, modifiers);
 					}
 					else if (keyStrokes < bufferLength)
-					{
+					{ 						
 						keyStrokes++;						
-						scanCodeBuffer[keyStrokes - 1] = scanCode;
+						
+						scanCodeBuffer[keyStrokes - 1] = scanCode ;
+						if (scanCode > 0x8000) //media key
+						{
+							keyStrokes++;						
+							scanCodeBuffer[keyStrokes - 1] = (scanCode >> 8)&0x0F;
+						}
 					}
 				}
 				else

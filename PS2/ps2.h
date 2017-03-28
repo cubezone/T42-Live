@@ -19,17 +19,17 @@
 //物理接口定义
 //PS2输入 		  				    
 #define PS2_SCL PAin(15)	//PA15
-#define PS2_SDA PAin(7)	//PA7
+#define PS2_SDA PBin(3)	//PB3
 //PS2输出
 #define PS2_SCL_OUT PAout(15)	//PA15
-#define PS2_SDA_OUT PAout(7)	//PA7
+#define PS2_SDA_OUT PBout(3)	//PB3
 
 //设置PS2_SCL输入输出状态.		  
 #define PS2_SET_SCL_IN()  {GPIOA->CRH&=0X0FFFFFFF;GPIOA->CRH|=0X80000000;}
 #define PS2_SET_SCL_OUT() {GPIOA->CRH&=0X0FFFFFFF;GPIOA->CRH|=0X30000000;}	  
 //设置PS2_SDA输入输出状态.		  
-#define PS2_SET_SDA_IN()  {GPIOA->CRL&=0X0FFFFFFF;GPIOA->CRL|=0X80000000;}
-#define PS2_SET_SDA_OUT() {GPIOA->CRL&=0X0FFFFFFF;GPIOA->CRL|=0X30000000;} 
+#define PS2_SET_SDA_IN()  {GPIOB->CRL&=0XFFFFFFFF;GPIOB->CRL|=0X00008000;}
+#define PS2_SET_SDA_OUT() {GPIOB->CRL&=0XFFFFFFFF;GPIOB->CRL|=0X00003000;} 
 
 #define MOUSE    0X20 //鼠标模式
 #define KEYBOARD 0X10 //键盘模式
