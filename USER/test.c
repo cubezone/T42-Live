@@ -42,6 +42,7 @@ PC13 Keyboard Fn Button
 
 int main(void)
 {
+	
 	Stm32_Clock_Init(9);//系统时钟设置
 	delay_init(72);		//延时初始化
 	
@@ -87,22 +88,25 @@ int main(void)
 // keyboard loop		
 
 		  modifiers = 0;
-		  scanCodeBuffer[0] = 0;
+			
 		  keysScanned = KS_ReadScanCode(scanCodeBuffer, scanCodeBufferSize, &modifiers);
 			if(keysScanned > 0 ||  modifiers != 0)
 			{
-				if (keysScanned > 0)
-				{						 
-					USB_Send_Key_Press(scanCodeBuffer[0], modifiers);
-				}else{
-					USB_Send_Key_Press(0x00, modifiers);
-				}			
+				USB_Send_Key_Press(scanCodeBuffer, modifiers);
 				keypress = 1;
 			}
 			else if (keypress == 1 )
 			{
 					USB_Send_All_Keys_Released(0x00);
 					keypress =0;
+					scanCodeBuffer[0] = 0;
+					scanCodeBuffer[1] = 0;
+					scanCodeBuffer[2] = 0;
+					scanCodeBuffer[3] = 0;
+					scanCodeBuffer[4] = 0;
+					scanCodeBuffer[5] = 0;
+					scanCodeBuffer[6] = 0;
+					scanCodeBuffer[7] = 0;
 			}			
 			delay_ms(10);			
 	}

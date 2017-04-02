@@ -245,14 +245,8 @@ uint8_t KS_ReadScanCode(uint8_t* scanCodeBuffer, uint8_t bufferLength, uint8_t* 
 					}
 					else if (keyStrokes < bufferLength)
 					{ 						
-						keyStrokes++;						
-						
-						scanCodeBuffer[keyStrokes - 1] = scanCode ;
-						if (scanCode > 0x8000) //media key
-						{
-							keyStrokes++;						
-							scanCodeBuffer[keyStrokes - 1] = (scanCode >> 8)&0x0F;
-						}
+						keyStrokes++;												
+						scanCodeBuffer[keyStrokes - 1] = scanCode ;					
 					}
 				}
 				else

@@ -94,11 +94,16 @@ void USB_Interrupts_Config(void)
 * Output        : None.
 * Return value  : None.
 *******************************************************************************/
-void keyboard_Send(u8 buf0, u8 buf1)
+void keyboard_Send(u8 buf0, u8 * buf1)
 {
 	 u8 Buffer[8] = {0, 0, 0, 0, 0, 0, 0, 0};
 	 Buffer[0] = buf0;
-	 Buffer[2] = buf1;
+	 Buffer[2] = *(buf1);
+	 Buffer[3] = *(buf1+1);
+	 Buffer[4] = *(buf1+2);
+	 Buffer[5] = *(buf1+3);
+	 Buffer[6] = *(buf1+4);	 
+	 Buffer[7] = *(buf1+5);
 	 UserToPMABufferCopy(Buffer, GetEPTxAddr(ENDP1), 8);
 	  /* enable endpoint for transmission */
 	 SetEPTxValid(ENDP1);
@@ -108,7 +113,7 @@ void Mouse_Send(u8 buf0, u8 buf1,  u8 buf2)
 {
 	 u8 Buffer[5] = {0, 0, 0, 0, 0};
 	 Buffer[0] = 1;
-	 Buffer[1] = buf0;
+	 Buffer[1] = buf0;  //Bun
 	 Buffer[2] = buf1; //x
 	 Buffer[3] = buf2; //y
 	 Buffer[4] = 0; //z

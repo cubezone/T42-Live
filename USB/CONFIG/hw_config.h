@@ -39,7 +39,7 @@ void Leave_LowPowerMode(void);
 void USB_Interrupts_Config(void);
 void USB_Cable_Config (FunctionalState NewState);
 void Joystick_Send(u8 buf0, u8 buf1);
-void keyboard_Send(u8 buf0, u8 buf1);
+void keyboard_Send(u8 buf0, u8 *buf1);
 void Mouse_Send(u8 buf0, u8 buf1,  u8 buf2);
 	
 u8 JoyState(void);
