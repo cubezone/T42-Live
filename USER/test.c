@@ -88,9 +88,16 @@ int main(void)
 // keyboard loop		
 
 		  modifiers = 0;
-			
+		  scanCodeBuffer[0] = 0;
+			scanCodeBuffer[1] = 0;
+			scanCodeBuffer[2] = 0;
+			scanCodeBuffer[3] = 0;
+			scanCodeBuffer[4] = 0;
+			scanCodeBuffer[5] = 0;
+			scanCodeBuffer[6] = 0;
+			scanCodeBuffer[7] = 0;			
 		  keysScanned = KS_ReadScanCode(scanCodeBuffer, scanCodeBufferSize, &modifiers);
-			if(keysScanned > 0 ||  modifiers != 0)
+			if(keysScanned > 0 ||  modifiers != 0)						
 			{
 				USB_Send_Key_Press(scanCodeBuffer, modifiers);
 				keypress = 1;
@@ -99,14 +106,6 @@ int main(void)
 			{
 					USB_Send_All_Keys_Released(0x00);
 					keypress =0;
-					scanCodeBuffer[0] = 0;
-					scanCodeBuffer[1] = 0;
-					scanCodeBuffer[2] = 0;
-					scanCodeBuffer[3] = 0;
-					scanCodeBuffer[4] = 0;
-					scanCodeBuffer[5] = 0;
-					scanCodeBuffer[6] = 0;
-					scanCodeBuffer[7] = 0;
 			}			
 			delay_ms(10);			
 	}
